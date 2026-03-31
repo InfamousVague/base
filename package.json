@@ -1,0 +1,37 @@
+{
+  "name": "@mattmattmattmatt/base",
+  "version": "0.1.1",
+  "description": "Universal design toolkit — monochrome, glassmorphism, platform-agnostic",
+  "type": "module",
+  "exports": {
+    "./*": "./*"
+  },
+  "files": [
+    "primitives",
+    "tokens",
+    "site/styles"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "tokens": "npx tsx build/to-css.ts",
+    "pull-icons": "npx tsx build/pull-icons.ts"
+  },
+  "devDependencies": {
+    "@tanstack/react-router-devtools": "^1.166.11",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "lucide-static": "^1.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.1"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.168.3",
+    "shiki": "^4.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  }
+}
