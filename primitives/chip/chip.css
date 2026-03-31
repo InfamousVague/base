@@ -1,0 +1,95 @@
+/* Chip primitive */
+
+/* ---- Base ---- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  border-radius: var(--radius-full);
+  cursor: default;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+/* ---- Variants ---- */
+.chip--filled {
+  background: var(--color-bg-inset);
+  border-color: transparent;
+  color: var(--color-text-primary);
+}
+
+.chip--outlined {
+  background: transparent;
+  border-color: var(--color-border-default);
+  color: var(--color-text-primary);
+}
+
+/* ---- Clickable ---- */
+.chip--clickable {
+  cursor: pointer;
+}
+
+.chip--clickable:hover {
+  background: var(--color-overlay);
+}
+
+/* ---- Selected ---- */
+.chip--selected {
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border-color: var(--color-text-primary);
+}
+
+/* ---- Disabled ---- */
+.chip--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---- Color dot ---- */
+.chip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.chip--md .chip__dot {
+  width: 10px;
+  height: 10px;
+}
+
+/* ---- Dismiss button ---- */
+.chip__dismiss {
+  display: flex;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.6;
+  padding: 0;
+}
+
+.chip__dismiss:hover {
+  opacity: 1;
+}
+
+/* ---- Sizes ---- */
+.chip--sm {
+  padding: var(--sp-1) var(--sp-2);
+  font-size: var(--text-xs-size);
+  height: 1.5rem;
+}
+
+.chip--md {
+  padding: var(--sp-1) var(--sp-3);
+  font-size: var(--text-sm-size);
+  height: 2rem;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .chip { transition: none; }
+}

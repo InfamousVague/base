@@ -1,0 +1,11 @@
+/* Center primitive */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center--inline {
+  display: inline-flex;
+}

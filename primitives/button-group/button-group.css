@@ -1,0 +1,46 @@
+/* ButtonGroup primitive */
+
+/* ---- Base ---- */
+.button-group {
+  display: inline-flex;
+}
+
+/* ---- Vertical ---- */
+.button-group--vertical {
+  flex-direction: column;
+}
+
+/* ---- Reset all child radii ---- */
+.button-group > .btn {
+  border-radius: 0;
+}
+
+/* ---- Horizontal: first/last radii ---- */
+.button-group:not(.button-group--vertical) > .btn:first-child {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+.button-group:not(.button-group--vertical) > .btn:last-child {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+/* ---- Horizontal: collapse borders ---- */
+.button-group:not(.button-group--vertical) > .btn + .btn {
+  margin-left: -1px;
+}
+
+/* ---- Vertical: first/last radii ---- */
+.button-group--vertical > .btn:first-child {
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+.button-group--vertical > .btn:last-child {
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+/* ---- Vertical: collapse borders ---- */
+.button-group--vertical > .btn + .btn {
+  margin-top: -1px;
+}

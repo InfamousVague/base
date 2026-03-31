@@ -1,0 +1,7 @@
+/* CopyButton primitive */
+
+/* Reuses .btn base styles from button.css */
+
+.copy-btn--copied {
+  color: var(--color-success);
+}

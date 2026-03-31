@@ -1,0 +1,110 @@
+/* Combobox primitive */
+
+/* ---- Wrapper ---- */
+.combobox {
+  position: relative;
+  width: 100%;
+}
+
+/* ---- Input ---- */
+.combobox__input {
+  width: 100%;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm-size);
+  font-family: var(--font-sans);
+  background: transparent;
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.combobox__input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent-subtle);
+}
+
+.combobox__input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* ---- Size: sm ---- */
+.combobox--sm .combobox__input {
+  padding: var(--sp-1) var(--sp-2);
+  font-size: var(--text-xs-size);
+}
+
+/* ---- Dropdown ---- */
+.combobox__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: var(--sp-1);
+  max-height: 16rem;
+  overflow-y: auto;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  padding: var(--sp-1);
+}
+
+/* ---- Group label ---- */
+.combobox__group {
+  padding: var(--sp-1) var(--sp-2);
+  font-size: var(--text-xs-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---- Option ---- */
+.combobox__option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--text-sm-size);
+  color: var(--color-text-primary);
+}
+
+.combobox__option:hover,
+.combobox__option--highlighted {
+  background: var(--color-overlay);
+}
+
+.combobox__option--selected {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent-text);
+}
+
+.combobox__option--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---- Option icon ---- */
+.combobox__option-icon {
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+}
+
+/* ---- Option description ---- */
+.combobox__option-desc {
+  font-size: var(--text-xs-size);
+  color: var(--color-text-tertiary);
+}
+
+/* ---- Empty state ---- */
+.combobox__empty {
+  padding: var(--sp-4);
+  text-align: center;
+  font-size: var(--text-sm-size);
+  color: var(--color-text-tertiary);
+}

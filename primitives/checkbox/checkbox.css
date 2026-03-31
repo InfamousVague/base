@@ -1,0 +1,126 @@
+/* Checkbox primitive */
+
+/* ---- Base ---- */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ---- Hidden input ---- */
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ---- Control box ---- */
+.checkbox__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: transparent;
+  transition:
+    background var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default),
+    color var(--duration-fast) var(--ease-default),
+    transform var(--duration-normal) var(--ease-bounce);
+  flex-shrink: 0;
+}
+
+/* ---- Icon inside control ---- */
+.checkbox__icon {
+  display: block;
+}
+
+/* ---- Control sizes ---- */
+.checkbox--sm .checkbox__control {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.checkbox--md .checkbox__control {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.checkbox--lg .checkbox__control {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+/* ---- Label sizes ---- */
+.checkbox--sm .checkbox__label {
+  font-size: var(--text-sm-size);
+}
+.checkbox--md .checkbox__label {
+  font-size: var(--text-base-size);
+}
+.checkbox--lg .checkbox__label {
+  font-size: var(--text-lg-size);
+}
+
+/* ---- Checked state ---- */
+.checkbox__input:checked + .checkbox__control {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg-primary);
+  transform: scale(1.1);
+}
+
+/* Settle back after bounce */
+.checkbox__input:checked + .checkbox__control {
+  animation: checkbox-pop var(--duration-normal) var(--ease-bounce);
+}
+
+@keyframes checkbox-pop {
+  0% { transform: scale(0.85); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+/* ---- Indeterminate state ---- */
+.checkbox__input:indeterminate + .checkbox__control {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg-primary);
+}
+
+/* ---- Hover ---- */
+.checkbox:hover .checkbox__control {
+  border-color: var(--color-text-tertiary);
+}
+.checkbox:hover .checkbox__input:checked + .checkbox__control,
+.checkbox:hover .checkbox__input:indeterminate + .checkbox__control {
+  border-color: var(--color-accent-hover);
+  background: var(--color-accent-hover);
+}
+
+/* ---- Focus-visible ---- */
+.checkbox__input:focus-visible + .checkbox__control {
+  box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-accent-subtle);
+}
+
+/* ---- Disabled ---- */
+.checkbox__input:disabled ~ * {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.checkbox:has(.checkbox__input:disabled) {
+  cursor: not-allowed;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .checkbox__control {
+    transition-duration: 0.01ms !important;
+  }
+  .checkbox__input:checked + .checkbox__control {
+    animation: none;
+  }
+}

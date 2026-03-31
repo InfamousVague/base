@@ -1,0 +1,134 @@
+/* ================================================================
+   Base Animation Keyframes — the canonical set.
+   Import once at root; components reference by name.
+   ================================================================ */
+
+/* ---- Entrance ---- */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(0.5rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-0.5rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pop {
+  0% { opacity: 0; transform: scale(0.8); }
+  70% { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ---- Exit ---- */
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slide-out-up {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-0.5rem); }
+}
+
+@keyframes slide-out-down {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(0.5rem); }
+}
+
+@keyframes scale-out {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+/* ---- Continuous / Attention ---- */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-0.25rem); }
+  40% { transform: translateX(0.25rem); }
+  60% { transform: translateX(-0.125rem); }
+  80% { transform: translateX(0.125rem); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ping {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* ---- Layout ---- */
+
+@keyframes expand {
+  from { opacity: 0; max-height: 0; overflow: hidden; }
+  to { opacity: 1; max-height: var(--expand-height, 40rem); overflow: hidden; }
+}
+
+@keyframes collapse {
+  from { opacity: 1; max-height: var(--expand-height, 40rem); overflow: hidden; }
+  to { opacity: 0; max-height: 0; overflow: hidden; }
+}
+
+/* ---- Text: Slot Machine (per-character vertical roll) ---- */
+
+@keyframes slot-roll {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ---- Text: Decipher (scramble resolve) ---- */
+/* JS-driven — no CSS keyframe needed, uses opacity for final reveal */
+
+@keyframes decipher-char {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ---- Text: Highlight gradient sweep ---- */
+
+@keyframes highlight-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

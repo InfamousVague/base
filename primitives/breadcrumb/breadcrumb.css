@@ -1,0 +1,42 @@
+/* Breadcrumb primitive */
+
+/* ---- Base ---- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line-height);
+}
+
+/* ---- Item ---- */
+.breadcrumb__item {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb__item:hover {
+  color: var(--color-text-primary);
+}
+
+/* ---- Current (last item) ---- */
+.breadcrumb__item--current {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-medium);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ---- Separator ---- */
+.breadcrumb__separator {
+  color: var(--color-text-disabled);
+  flex-shrink: 0;
+  font-size: var(--text-xs-size);
+}

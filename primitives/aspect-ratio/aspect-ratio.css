@@ -1,0 +1,11 @@
+/* AspectRatio primitive */
+
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+}
+
+.aspect-ratio > * {
+  width: 100%;
+  height: 100%;
+}

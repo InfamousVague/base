@@ -1,0 +1,76 @@
+/* ColorPicker primitive */
+
+/* ---- Base ---- */
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+/* ---- Swatches grid ---- */
+.color-picker__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+/* ---- Swatch ---- */
+.color-picker__swatch {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  border: none;
+  transition: box-shadow var(--transition-fast);
+  flex-shrink: 0;
+  padding: 0;
+  background: none;
+}
+
+.color-picker__swatch:hover:not(.color-picker__swatch--active) {
+  box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 3px var(--color-border-strong);
+}
+
+.color-picker__swatch--active {
+  box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-text-primary);
+}
+
+.color-picker__swatch--sm {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ---- Input row ---- */
+.color-picker__input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+/* ---- Color preview ---- */
+.color-picker__preview {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+/* ---- Hex text input ---- */
+.color-picker__hex {
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--sp-1) var(--sp-2);
+  font-size: var(--text-xs-size);
+  font-family: var(--font-mono);
+  width: 6rem;
+  background: transparent;
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.color-picker__hex:focus {
+  outline: none;
+  border-color: var(--color-border-strong);
+}

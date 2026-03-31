@@ -1,0 +1,24 @@
+/* Container primitive */
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Sizes ---- */
+.container--sm { max-width: 40rem; }
+.container--md { max-width: 48rem; }
+.container--lg { max-width: 64rem; }
+.container--xl { max-width: 80rem; }
+.container--full { max-width: 100%; }
+
+/* ---- Padding X ---- */
+.container--px-1 { padding-left: var(--sp-1); padding-right: var(--sp-1); }
+.container--px-2 { padding-left: var(--sp-2); padding-right: var(--sp-2); }
+.container--px-3 { padding-left: var(--sp-3); padding-right: var(--sp-3); }
+.container--px-4 { padding-left: var(--sp-4); padding-right: var(--sp-4); }
+.container--px-6 { padding-left: var(--sp-6); padding-right: var(--sp-6); }
+.container--px-8 { padding-left: var(--sp-8); padding-right: var(--sp-8); }
+.container--px-12 { padding-left: var(--sp-12); padding-right: var(--sp-12); }
+.container--px-16 { padding-left: var(--sp-16); padding-right: var(--sp-16); }

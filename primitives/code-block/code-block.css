@@ -1,0 +1,79 @@
+/* CodeBlock primitive */
+
+.code-block {
+  position: relative;
+  background: var(--color-bg-inset);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs-size);
+  overflow: hidden;
+}
+
+.code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-secondary);
+}
+
+.code-block__language {
+  font-size: var(--text-xs-size);
+  color: var(--color-text-tertiary);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.code-block__copy {
+  padding: var(--sp-1);
+  border-radius: var(--radius-sm);
+  background: none;
+  border: none;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.code-block__copy:hover {
+  color: var(--color-text-primary);
+}
+
+.code-block__copy--copied {
+  color: var(--color-success);
+}
+
+.code-block__pre {
+  margin: 0;
+  padding: var(--sp-3);
+  overflow-x: auto;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+
+.code-block__lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-block__line {
+  display: flex;
+}
+
+.code-block__line-number {
+  display: inline-block;
+  width: 2.5rem;
+  text-align: right;
+  padding-right: var(--sp-3);
+  color: var(--color-text-disabled);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.code-block__line-content {
+  flex: 1;
+  white-space: pre;
+}
