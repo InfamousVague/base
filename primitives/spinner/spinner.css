@@ -1,0 +1,42 @@
+/* Spinner primitive */
+
+/* ---- Base ---- */
+.spinner {
+  display: inline-block;
+  border-radius: var(--radius-full);
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  animation: spinner-spin var(--duration-slower) linear infinite;
+  color: currentColor;
+}
+
+/* ---- Sizes ---- */
+.spinner--sm {
+  width: calc(var(--text-sm-size) * 1.25);
+  height: calc(var(--text-sm-size) * 1.25);
+}
+.spinner--md {
+  width: calc(var(--text-lg-size) * 1.25);
+  height: calc(var(--text-lg-size) * 1.25);
+}
+.spinner--lg {
+  width: calc(var(--text-2xl-size) * 1.25);
+  height: calc(var(--text-2xl-size) * 1.25);
+}
+
+/* ---- Animation ---- */
+@keyframes spinner-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinner-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: spinner-pulse 2s ease-in-out infinite;
+  }
+}

@@ -1,0 +1,15 @@
+/* Spacer primitive */
+
+.spacer {
+  flex: 1 1 0;
+}
+
+/* ---- Fixed sizes ---- */
+.spacer--1 { flex: 0 0 var(--sp-1); }
+.spacer--2 { flex: 0 0 var(--sp-2); }
+.spacer--3 { flex: 0 0 var(--sp-3); }
+.spacer--4 { flex: 0 0 var(--sp-4); }
+.spacer--6 { flex: 0 0 var(--sp-6); }
+.spacer--8 { flex: 0 0 var(--sp-8); }
+.spacer--12 { flex: 0 0 var(--sp-12); }
+.spacer--16 { flex: 0 0 var(--sp-16); }

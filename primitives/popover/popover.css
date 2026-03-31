@@ -1,0 +1,108 @@
+/* Popover primitive */
+
+/* ---- Base ---- */
+.popover {
+  position: relative;
+  display: inline-flex;
+}
+
+.popover__trigger {
+  display: inline-flex;
+}
+
+/* ---- Content panel ---- */
+.popover__content {
+  position: absolute;
+  z-index: 1000;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--sp-2);
+  min-width: 12rem;
+  animation: popover-in var(--transition-fast) forwards;
+}
+
+/* ---- Placement ---- */
+.popover__content--bottom {
+  top: 100%;
+  margin-top: var(--sp-1);
+}
+
+.popover__content--top {
+  bottom: 100%;
+  margin-bottom: var(--sp-1);
+}
+
+.popover__content--left {
+  right: 100%;
+  margin-right: var(--sp-1);
+}
+
+.popover__content--right {
+  left: 100%;
+  margin-left: var(--sp-1);
+}
+
+/* ---- Alignment ---- */
+.popover__content--start {
+  left: 0;
+}
+
+.popover__content--center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popover__content--end {
+  right: 0;
+}
+
+/* Left/right placement alignment overrides */
+.popover__content--left.popover__content--start,
+.popover__content--right.popover__content--start {
+  left: auto;
+  top: 0;
+}
+
+.popover__content--left.popover__content--center,
+.popover__content--right.popover__content--center {
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.popover__content--left.popover__content--end,
+.popover__content--right.popover__content--end {
+  left: auto;
+  right: auto;
+  bottom: 0;
+}
+
+/* ---- Entry animation ---- */
+@keyframes popover-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Preserve center alignment transform during animation */
+.popover__content--center {
+  animation: popover-in-center var(--transition-fast) forwards;
+}
+
+@keyframes popover-in-center {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}

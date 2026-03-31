@@ -1,0 +1,84 @@
+/* SegmentedControl primitive */
+
+/* ---- Container ---- */
+.seg {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-bg-inset);
+  border-radius: var(--shape-pill);
+  padding: 3px;
+  gap: 2px;
+}
+
+/* ---- Sliding indicator ---- */
+.seg__indicator {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  border-radius: var(--shape-pill);
+  background: var(--color-text-primary);
+  box-shadow: var(--shadow-sm);
+  transition:
+    left var(--duration-normal) var(--ease-spring),
+    width var(--duration-normal) var(--ease-spring);
+  z-index: 0;
+}
+
+/* ---- Option button ---- */
+.seg__option {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+  border-radius: var(--shape-pill);
+}
+
+.seg__option:hover:not(:disabled):not(.seg__option--active) {
+  color: var(--color-text-primary);
+}
+
+/* ---- Active option ---- */
+.seg__option--active {
+  color: var(--color-bg-primary);
+}
+
+/* ---- Disabled ---- */
+.seg__option:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---- Size: sm ---- */
+.seg--sm .seg__option {
+  font-size: var(--text-xs-size);
+  padding: var(--sp-1) var(--sp-3);
+}
+
+/* ---- Size: md ---- */
+.seg--md .seg__option {
+  font-size: var(--text-sm-size);
+  padding: var(--sp-1) var(--sp-4);
+}
+
+/* ---- Mono font ---- */
+.seg--mono .seg__option {
+  font-family: var(--font-mono);
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .seg__indicator {
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,100 @@
+/* Stepper primitive */
+
+/* ---- Base ---- */
+.stepper {
+  display: flex;
+  flex-direction: row;
+  gap: var(--sp-4);
+  font-family: var(--font-sans);
+}
+
+.stepper--vertical {
+  flex-direction: column;
+}
+
+/* ---- Step ---- */
+.stepper__step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sp-3);
+  flex: 1;
+}
+
+/* ---- Indicator circle ---- */
+.stepper__indicator {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-medium);
+  flex-shrink: 0;
+  transition: all var(--transition-normal);
+}
+
+.stepper__indicator--completed {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg-primary);
+}
+
+.stepper__indicator--active {
+  border-color: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+.stepper__indicator--upcoming {
+  border-color: var(--color-border-default);
+  color: var(--color-text-disabled);
+}
+
+/* ---- Content ---- */
+.stepper__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepper__label {
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-medium);
+  line-height: var(--text-sm-line-height);
+  color: var(--color-text-primary);
+}
+
+.stepper__description {
+  font-size: var(--text-xs-size);
+  line-height: var(--text-xs-line-height);
+  color: var(--color-text-tertiary);
+}
+
+/* ---- Connector ---- */
+.stepper__connector {
+  flex: 1;
+  height: 2px;
+  background: var(--color-border-default);
+  margin: auto;
+  min-width: var(--sp-4);
+}
+
+.stepper__connector--completed {
+  background: var(--color-accent);
+}
+
+/* ---- Vertical orientation overrides ---- */
+.stepper--vertical .stepper__step {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.stepper--vertical .stepper__connector {
+  width: 2px;
+  height: auto;
+  min-height: var(--sp-4);
+  flex: 1;
+  margin: 0;
+  margin-left: calc(1rem - 1px);
+}

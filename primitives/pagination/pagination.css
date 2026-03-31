@@ -1,0 +1,93 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-2) 0;
+}
+
+.pagination--disabled {
+  opacity: 0.5;
+}
+
+/* ── Info ── */
+
+.pagination__info {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs-size);
+  line-height: var(--text-xs-line-height);
+  color: var(--color-text-tertiary);
+  min-width: 4rem;
+  text-align: center;
+  user-select: none;
+}
+
+/* ── Count ── */
+
+.pagination__count {
+  font-size: var(--text-xs-size);
+  line-height: var(--text-xs-line-height);
+  color: var(--color-text-tertiary);
+  margin-left: auto;
+  user-select: none;
+}
+
+/* ── Buttons ── */
+
+.pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-default),
+              color var(--duration-fast) var(--ease-default),
+              border-color var(--duration-fast) var(--ease-default);
+}
+
+.pagination__btn:hover:not(:disabled) {
+  background: var(--color-overlay);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-hover);
+}
+
+.pagination__btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.pagination__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ── Sizes ── */
+
+.pagination--sm .pagination__btn {
+  width: 24px;
+  height: 24px;
+}
+.pagination--sm .pagination__btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+.pagination--md .pagination__btn {
+  width: 28px;
+  height: 28px;
+}
+.pagination--md .pagination__btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pagination--lg .pagination__btn {
+  width: 32px;
+  height: 32px;
+}
+.pagination--lg .pagination__btn svg {
+  width: 16px;
+  height: 16px;
+}

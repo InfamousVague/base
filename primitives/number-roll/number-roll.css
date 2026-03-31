@@ -1,0 +1,46 @@
+/* NumberRoll — animated digit columns */
+
+.number-roll {
+  --nr-digit-h: 1.15em;
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  vertical-align: baseline;
+  color: inherit;
+}
+
+.number-roll__col {
+  display: inline-block;
+  height: var(--nr-digit-h);
+  overflow: hidden;
+  position: relative;
+  font-size: inherit;
+}
+
+.number-roll__strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.number-roll__digit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--nr-digit-h);
+  min-width: 0.62em;
+  text-align: center;
+  font-size: inherit;
+  line-height: 1;
+}
+
+.number-roll__comma {
+  display: inline-flex;
+  align-items: flex-end;
+  height: var(--nr-digit-h);
+  font-size: inherit;
+  line-height: 1;
+  opacity: 0.5;
+}

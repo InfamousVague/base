@@ -1,0 +1,44 @@
+/* Progress primitive */
+
+/* ---- Track ---- */
+.progress {
+  position: relative;
+  background: var(--color-bg-inset);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ---- Bar ---- */
+.progress__bar {
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+  height: 100%;
+}
+
+/* ---- Sizes ---- */
+.progress--sm { height: var(--sp-1); }
+.progress--md { height: var(--sp-2); }
+.progress--lg { height: var(--sp-3); }
+
+/* ---- Color modifiers ---- */
+.progress--error .progress__bar { background: var(--color-error); }
+.progress--warning .progress__bar { background: var(--color-warning); }
+.progress--success .progress__bar { background: var(--color-success); }
+.progress--info .progress__bar { background: var(--color-info); }
+
+/* ---- Indeterminate ---- */
+.progress--indeterminate .progress__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  animation: progress-indeterminate 2s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes progress-indeterminate {
+  0%   { left: -5%;  width: 25%; }
+  50%  { width: 40%; }
+  100% { left: 75%;  width: 25%; }
+}

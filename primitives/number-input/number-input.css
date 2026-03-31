@@ -1,0 +1,84 @@
+/* NumberInput primitive */
+
+/* ---- Base ---- */
+.number-input {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-family: var(--font-sans);
+  background: transparent;
+}
+
+/* ---- Sizes ---- */
+.number-input--sm {
+  font-size: var(--text-sm-size);
+}
+.number-input--sm .number-input__btn { padding: var(--sp-1) var(--sp-2); }
+.number-input--sm .number-input__value { font-size: var(--text-sm-size); }
+
+.number-input--md {
+  font-size: var(--text-base-size);
+}
+.number-input--md .number-input__btn { padding: var(--sp-2) var(--sp-2); }
+.number-input--md .number-input__value { font-size: var(--text-base-size); }
+
+.number-input--lg {
+  font-size: var(--text-lg-size);
+}
+.number-input--lg .number-input__btn { padding: var(--sp-3) var(--sp-3); }
+.number-input--lg .number-input__value { font-size: var(--text-lg-size); }
+
+/* ---- Buttons ---- */
+.number-input__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--color-text-tertiary);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.number-input__btn:hover {
+  background: var(--color-overlay);
+  color: var(--color-text-primary);
+}
+
+.number-input__btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ---- Value input ---- */
+.number-input__value {
+  text-align: center;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  width: 3rem;
+  outline: none;
+  font-size: inherit;
+  padding: 0;
+}
+
+/* ---- Variant: filled ---- */
+.number-input--filled {
+  background: var(--color-bg-inset);
+  border-color: transparent;
+}
+
+/* ---- Variant: ghost ---- */
+.number-input--ghost {
+  border-color: transparent;
+}
+
+/* ---- Disabled ---- */
+.number-input--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}

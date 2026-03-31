@@ -1,0 +1,61 @@
+/* PinInput primitive */
+
+/* ---- Base ---- */
+.pin-input {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+/* ---- Field ---- */
+.pin-input__field {
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-lg-size);
+  font-weight: var(--weight-medium);
+  background: transparent;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.pin-input__field:focus {
+  border-color: var(--color-text-primary);
+  box-shadow: 0 0 0 2px var(--color-accent-subtle);
+}
+
+.pin-input__field--filled {
+  border-color: var(--color-border-strong);
+}
+
+/* ---- Sizes ---- */
+.pin-input--sm .pin-input__field {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--text-base-size);
+}
+
+.pin-input--lg .pin-input__field {
+  width: 3rem;
+  height: 3rem;
+  font-size: var(--text-xl-size);
+}
+
+/* ---- Error ---- */
+.pin-input--error .pin-input__field {
+  border-color: var(--color-error);
+}
+
+/* ---- Disabled ---- */
+.pin-input--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .pin-input__field { transition: none; }
+}

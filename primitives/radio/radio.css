@@ -1,0 +1,114 @@
+/* Radio primitive */
+
+/* ---- RadioGroup ---- */
+.radio-group {
+  display: flex;
+  gap: var(--sp-3);
+}
+.radio-group--vertical {
+  flex-direction: column;
+}
+.radio-group--horizontal {
+  flex-direction: row;
+}
+
+/* ---- Radio base ---- */
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ---- Hidden input ---- */
+.radio__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ---- Control circle ---- */
+.radio__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+/* Inner dot */
+.radio__control::after {
+  content: '';
+  border-radius: var(--radius-full);
+  background: currentColor;
+  transform: scale(0);
+  transition: transform var(--transition-fast);
+}
+
+/* ---- Control sizes ---- */
+.radio--sm .radio__control {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.radio--sm .radio__control::after {
+  width: 0.35rem;
+  height: 0.35rem;
+}
+
+.radio--md .radio__control {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.radio--md .radio__control::after {
+  width: 0.45rem;
+  height: 0.45rem;
+}
+
+.radio--lg .radio__control {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+.radio--lg .radio__control::after {
+  width: 0.55rem;
+  height: 0.55rem;
+}
+
+/* ---- Label sizes ---- */
+.radio--sm .radio__label {
+  font-size: var(--text-sm-size);
+}
+.radio--md .radio__label {
+  font-size: var(--text-base-size);
+}
+.radio--lg .radio__label {
+  font-size: var(--text-lg-size);
+}
+
+/* ---- Checked state ---- */
+.radio__input:checked + .radio__control {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.radio__input:checked + .radio__control::after {
+  transform: scale(1);
+}
+
+/* ---- Focus-visible ---- */
+.radio__input:focus-visible + .radio__control {
+  box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-accent-subtle);
+}
+
+/* ---- Disabled ---- */
+.radio__input:disabled ~ * {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.radio:has(.radio__input:disabled) {
+  cursor: not-allowed;
+}

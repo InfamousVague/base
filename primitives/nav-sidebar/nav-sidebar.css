@@ -1,0 +1,177 @@
+/* NavSidebar primitive */
+
+.nav-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 100%;
+  background: var(--color-bg-secondary);
+  border-right: 1px solid var(--color-border-default);
+  transition: width var(--duration-normal) var(--ease-default);
+  overflow: hidden;
+}
+
+.nav-sidebar--collapsed {
+  width: 60px;
+}
+
+/* ---- Header / Footer slots ---- */
+.nav-sidebar__header {
+  flex-shrink: 0;
+  padding: var(--sp-3) var(--sp-3) var(--sp-1);
+}
+
+.nav-sidebar--collapsed .nav-sidebar__header {
+  display: none;
+}
+
+.nav-sidebar__footer {
+  flex-shrink: 0;
+  padding: var(--sp-2) var(--sp-3);
+  margin-top: auto;
+}
+
+/* ---- Scrollable nav body ---- */
+.nav-sidebar__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--sp-1) var(--sp-2);
+}
+
+.nav-sidebar--collapsed .nav-sidebar__scroll {
+  padding: var(--sp-1) var(--sp-1);
+}
+
+/* ---- Category group ---- */
+.nav-sidebar__group {
+  margin-bottom: var(--sp-1);
+}
+
+/* ---- Category header (button) ---- */
+.nav-sidebar__category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--sp-2) var(--sp-2);
+  margin: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs-size);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast), background var(--duration-fast);
+}
+
+.nav-sidebar__category:hover {
+  color: var(--color-text-secondary);
+  background: var(--color-overlay);
+}
+
+.nav-sidebar--collapsed .nav-sidebar__category {
+  justify-content: center;
+  font-size: 9px;
+  letter-spacing: 0;
+  padding: var(--sp-1);
+}
+
+/* ---- Chevron ---- */
+.nav-sidebar__chevron {
+  color: var(--color-text-disabled);
+  transition: transform var(--duration-fast) var(--ease-default);
+  flex-shrink: 0;
+}
+
+.nav-sidebar__category--open .nav-sidebar__chevron {
+  transform: rotate(180deg);
+}
+
+/* ---- Collapsible items container ---- */
+.nav-sidebar__items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-normal) var(--ease-default);
+}
+
+.nav-sidebar__items--open {
+  max-height: 60rem; /* generous max for any category */
+}
+
+/* ---- Item wrapper (for custom renderItem) ---- */
+.nav-sidebar__item-wrapper {
+  display: contents;
+}
+
+/* ---- Nav item (default <a>) ---- */
+.nav-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-3);
+  margin: 1px 0;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm-size);
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.nav-sidebar__item:hover {
+  background: var(--color-overlay);
+  color: var(--color-text-primary);
+}
+
+/* ---- Pill active state ---- */
+.nav-sidebar__item--active {
+  background: var(--accent-6);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-weight: var(--weight-medium);
+}
+
+.nav-sidebar__item--active:hover {
+  background: var(--accent-7, var(--accent-6));
+  color: #fff;
+}
+
+/* ---- Item icon ---- */
+.nav-sidebar__item-icon {
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+}
+
+.nav-sidebar__item--active .nav-sidebar__item-icon {
+  color: #fff;
+}
+
+/* ---- Item label ---- */
+.nav-sidebar__item-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Collapsed mode items ---- */
+.nav-sidebar--collapsed .nav-sidebar__item {
+  justify-content: center;
+  padding: var(--sp-1);
+  font-size: var(--text-xs-size);
+  gap: 0;
+}
+
+.nav-sidebar--collapsed .nav-sidebar__item-icon {
+  display: none;
+}
+
+.nav-sidebar--collapsed .nav-sidebar__items {
+  max-height: 60rem; /* always open in collapsed mode */
+}

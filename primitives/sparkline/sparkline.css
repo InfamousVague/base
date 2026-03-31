@@ -1,0 +1,59 @@
+/* Sparkline primitive */
+
+/* ---- Base ---- */
+.sparkline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ---- Line ---- */
+.sparkline__line {
+  fill: none;
+  stroke: var(--color-text-primary);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---- Area ---- */
+.sparkline__area {
+  fill: var(--color-text-primary);
+  opacity: 0.1;
+  stroke: none;
+}
+
+/* ---- Colors ---- */
+.sparkline--accent .sparkline__line {
+  stroke: var(--color-accent);
+}
+.sparkline--accent .sparkline__area {
+  fill: var(--color-accent);
+}
+
+.sparkline--success .sparkline__line {
+  stroke: var(--color-success);
+}
+.sparkline--success .sparkline__area {
+  fill: var(--color-success);
+}
+
+.sparkline--error .sparkline__line {
+  stroke: var(--color-error);
+}
+.sparkline--error .sparkline__area {
+  fill: var(--color-error);
+}
+
+.sparkline--warning .sparkline__line {
+  stroke: var(--color-warning);
+}
+.sparkline--warning .sparkline__area {
+  fill: var(--color-warning);
+}
+
+.sparkline--info .sparkline__line {
+  stroke: var(--color-info);
+}
+.sparkline--info .sparkline__area {
+  fill: var(--color-info);
+}

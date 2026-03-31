@@ -1,0 +1,118 @@
+/* Skeleton primitive — shimmer animation with RTL + reduced-motion support */
+
+/* ---- Shimmer keyframes ---- */
+@keyframes skeleton-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* ---- Base skeleton ---- */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-skeleton);
+  border-radius: var(--shape-default);
+
+  /* Kill text inside */
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Shimmer overlay — pseudo-element */
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-skeleton-shimmer) 50%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+/* ---- RTL support — reverse shimmer direction ---- */
+[dir="rtl"] .skeleton::after,
+.skeleton[dir="rtl"]::after {
+  animation-direction: reverse;
+}
+
+/* ---- Reduced motion — slow gentle pulse instead of shimmer ---- */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after {
+    animation: skeleton-pulse 3s ease-in-out infinite;
+    background: var(--color-skeleton-shimmer);
+    opacity: 0.3;
+  }
+}
+
+/* ---- Shape variants ---- */
+.skeleton--square { border-radius: var(--shape-square); }
+.skeleton--default { border-radius: var(--shape-default); }
+.skeleton--pill { border-radius: var(--shape-pill); }
+.skeleton--circle { border-radius: 50%; }
+
+/* ---- Size presets: text scale ---- */
+.skeleton--text-xs { height: calc(var(--text-xs-size) * var(--text-xs-line-height)); width: 5rem; }
+.skeleton--text-sm { height: calc(var(--text-sm-size) * var(--text-sm-line-height)); width: 7.5rem; }
+.skeleton--text-base { height: calc(var(--text-base-size) * var(--text-base-line-height)); width: 12rem; }
+.skeleton--text-lg { height: calc(var(--text-lg-size) * var(--text-lg-line-height)); width: 14rem; }
+.skeleton--text-xl { height: calc(var(--text-xl-size) * var(--text-xl-line-height)); width: 16rem; }
+.skeleton--text-2xl { height: calc(var(--text-2xl-size) * var(--text-2xl-line-height)); width: 18rem; }
+.skeleton--text-3xl { height: calc(var(--text-3xl-size) * var(--text-3xl-line-height)); width: 20rem; }
+.skeleton--text-4xl { height: calc(var(--text-4xl-size) * var(--text-4xl-line-height)); width: 22rem; }
+
+/* ---- Size presets: generic component sizes ---- */
+.skeleton--xs { height: 1.5rem; width: 3rem; }
+.skeleton--sm { height: 2rem; width: 4rem; }
+.skeleton--md { height: 2.5rem; width: 6rem; }
+.skeleton--lg { height: 3rem; width: 8rem; }
+.skeleton--xl { height: 3.5rem; width: 10rem; }
+
+/* ---- Size presets: specific components ---- */
+.skeleton--button { height: 2.25rem; width: 5.5rem; }
+.skeleton--button-sm { height: 1.75rem; width: 4rem; }
+.skeleton--button-lg { height: 2.75rem; width: 7rem; }
+.skeleton--avatar-sm { height: 1.5rem; width: 1.5rem; border-radius: 50%; }
+.skeleton--avatar { height: 2.5rem; width: 2.5rem; border-radius: 50%; }
+.skeleton--avatar-lg { height: 3.5rem; width: 3.5rem; border-radius: 50%; }
+.skeleton--icon { height: 1.25rem; width: 1.25rem; border-radius: var(--radius-sm); }
+
+/* ---- Full width modifier ---- */
+.skeleton--full { width: 100%; }
+
+/* ---- SkeletonReveal crossfade ---- */
+.skeleton-reveal {
+  display: grid;
+}
+
+/* Stack both layers in the same grid cell */
+.skeleton-reveal__skeleton,
+.skeleton-reveal__content {
+  grid-area: 1 / 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Before load: skeleton visible, content hidden */
+.skeleton-reveal__content {
+  opacity: 0;
+}
+
+/* After load: skeleton hidden, content visible */
+.skeleton-reveal--loaded .skeleton-reveal__skeleton {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.skeleton-reveal--loaded .skeleton-reveal__content {
+  opacity: 1;
+}

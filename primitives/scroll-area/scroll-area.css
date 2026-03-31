@@ -1,0 +1,41 @@
+/* ScrollArea primitive */
+
+.scroll-area {
+  overflow: auto;
+}
+
+/* ---- Direction ---- */
+.scroll-area--vertical {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.scroll-area--horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.scroll-area--both {
+  overflow: auto;
+}
+
+/* ---- Custom scrollbar (Webkit) ---- */
+.scroll-area::-webkit-scrollbar {
+  width: var(--sp-2);
+  height: var(--sp-2);
+}
+.scroll-area::-webkit-scrollbar-track {
+  background: var(--color-bg-inset);
+  border-radius: var(--radius-full);
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: var(--radius-full);
+}
+.scroll-area::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
+
+/* ---- Custom scrollbar (Firefox) ---- */
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-default) var(--color-bg-inset);
+}

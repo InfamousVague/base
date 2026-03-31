@@ -1,0 +1,21 @@
+/* Separator primitive */
+
+/* ---- Base ---- */
+.separator {
+  border: 0;
+  margin: 0;
+}
+
+/* ---- Horizontal ---- */
+.separator--horizontal {
+  border-top: 1px solid var(--color-border-subtle);
+  width: 100%;
+}
+
+/* ---- Vertical ---- */
+.separator--vertical {
+  border-left: 1px solid var(--color-border-subtle);
+  height: 100%;
+  width: 0;
+  align-self: stretch;
+}
