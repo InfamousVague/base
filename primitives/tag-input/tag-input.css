@@ -1,0 +1,55 @@
+/* TagInput primitive */
+
+/* ---- Base ---- */
+.tag-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-1) var(--sp-2);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  min-height: 2.5rem;
+  cursor: text;
+  transition: border-color var(--transition-fast);
+}
+
+/* ---- Focus ---- */
+.tag-input:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-subtle);
+}
+
+/* ---- Sizes ---- */
+.tag-input--sm {
+  min-height: 2rem;
+  font-size: var(--text-sm-size);
+}
+.tag-input--md {
+  font-size: var(--text-sm-size);
+}
+
+/* ---- Input ---- */
+.tag-input__input {
+  flex: 1;
+  min-width: 4rem;
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: var(--text-sm-size);
+  color: var(--color-text-primary);
+  padding: var(--sp-1);
+  font-family: inherit;
+}
+
+.tag-input__input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* ---- Disabled ---- */
+.tag-input--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}

@@ -1,0 +1,85 @@
+/* Table primitive */
+
+/* ---- Wrapper ---- */
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* ---- Base ---- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm-size);
+}
+
+/* ---- Head ---- */
+.table__head {
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+/* ---- Header cells ---- */
+.table__th {
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--text-xs-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+/* ---- Body cells ---- */
+.table__td {
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--text-sm-size);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* ---- Striped ---- */
+.table--striped .table__tr:nth-child(even) {
+  background: var(--color-bg-secondary);
+}
+
+/* ---- Compact ---- */
+.table--compact .table__th,
+.table--compact .table__td {
+  padding: var(--sp-1) var(--sp-2);
+}
+
+/* ---- Clickable rows ---- */
+.table__tr--clickable {
+  cursor: pointer;
+}
+.table__tr--clickable:hover {
+  background: var(--color-overlay);
+}
+
+/* ---- Sticky header ---- */
+.table--sticky .table__head {
+  position: sticky;
+  top: 0;
+  background: var(--color-bg-primary);
+  z-index: 1;
+}
+
+/* ---- Empty state ---- */
+.table__empty {
+  padding: var(--sp-8);
+  text-align: center;
+  color: var(--color-text-tertiary);
+  font-size: var(--text-sm-size);
+}
+
+/* ---- Alignment modifiers ---- */
+.table__th--center,
+.table__td--center {
+  text-align: center;
+}
+
+.table__th--right,
+.table__td--right {
+  text-align: right;
+}

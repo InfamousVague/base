@@ -1,0 +1,69 @@
+/* Tabs primitive */
+
+/* ---- Base ---- */
+.tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* ---- Variants ---- */
+.tabs--pill {
+  border-bottom: none;
+  gap: var(--sp-1);
+  background: none;
+}
+
+/* ---- Tab button ---- */
+.tabs__tab {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tabs__tab:hover {
+  color: var(--color-text-primary);
+}
+
+.tabs__tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---- Underline variant tabs ---- */
+.tabs--underline .tabs__tab {
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 2px solid transparent;
+}
+
+.tabs--underline .tabs__tab--active {
+  border-bottom-color: var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+/* ---- Pill variant tabs ---- */
+.tabs--pill .tabs__tab {
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--shape-pill);
+  background: transparent;
+}
+
+.tabs--pill .tabs__tab--active {
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
+}
+
+/* ---- Sizes ---- */
+.tabs--sm .tabs__tab {
+  font-size: var(--text-xs-size);
+}
+
+.tabs--md .tabs__tab {
+  font-size: var(--text-sm-size);
+}

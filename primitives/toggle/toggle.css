@@ -1,0 +1,111 @@
+/* Toggle primitive */
+
+/* ---- Base ---- */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ---- Hidden input ---- */
+.toggle__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ---- Track ---- */
+.toggle__track {
+  position: relative;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-inset);
+  border: 1px solid var(--color-border-default);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+/* ---- Thumb ---- */
+.toggle__thumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-primary);
+  box-shadow: var(--shadow-sm);
+  transition: left var(--transition-fast);
+  left: 2px;
+}
+
+/* ---- Track sizes ---- */
+.toggle--sm .toggle__track {
+  width: 1.75rem;
+  height: 1rem;
+}
+.toggle--md .toggle__track {
+  width: 2.25rem;
+  height: 1.25rem;
+}
+.toggle--lg .toggle__track {
+  width: 2.75rem;
+  height: 1.5rem;
+}
+
+/* ---- Thumb sizes ---- */
+.toggle--sm .toggle__thumb {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+.toggle--md .toggle__thumb {
+  width: 1rem;
+  height: 1rem;
+}
+.toggle--lg .toggle__thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ---- Checked state ---- */
+.toggle__input:checked + .toggle__track {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Thumb position when checked */
+.toggle--sm .toggle__input:checked + .toggle__track .toggle__thumb {
+  left: calc(1.75rem - 0.75rem - 2px - 2px);
+}
+.toggle--md .toggle__input:checked + .toggle__track .toggle__thumb {
+  left: calc(2.25rem - 1rem - 2px - 2px);
+}
+.toggle--lg .toggle__input:checked + .toggle__track .toggle__thumb {
+  left: calc(2.75rem - 1.25rem - 2px - 2px);
+}
+
+/* ---- Label sizes ---- */
+.toggle--sm .toggle__label {
+  font-size: var(--text-sm-size);
+}
+.toggle--md .toggle__label {
+  font-size: var(--text-base-size);
+}
+.toggle--lg .toggle__label {
+  font-size: var(--text-lg-size);
+}
+
+/* ---- Focus-visible ---- */
+.toggle__input:focus-visible + .toggle__track {
+  box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-accent-subtle);
+}
+
+/* ---- Disabled ---- */
+.toggle__input:disabled ~ * {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.toggle:has(.toggle__input:disabled) {
+  cursor: not-allowed;
+}

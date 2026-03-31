@@ -1,0 +1,67 @@
+/* TreeView primitive */
+
+.tree-view {
+  font-family: var(--font-sans);
+}
+
+.tree-node {
+  display: flex;
+  flex-direction: column;
+}
+
+.tree-node__row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  min-height: 2rem;
+}
+.tree-node__row:hover {
+  background: var(--color-overlay);
+}
+
+.tree-node__row--selected {
+  background: var(--color-accent-subtle);
+}
+
+.tree-node__indent {
+  flex-shrink: 0;
+}
+
+.tree-node__chevron {
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--duration-fast) var(--ease-default);
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+}
+
+.tree-node__chevron--expanded {
+  transform: rotate(90deg);
+}
+
+.tree-node__chevron--hidden {
+  visibility: hidden;
+}
+
+.tree-node__icon {
+  display: flex;
+  color: var(--color-text-tertiary);
+}
+
+.tree-node__label {
+  font-size: var(--text-sm-size);
+  color: var(--color-text-primary);
+  flex: 1;
+}
+
+.tree-node__children {
+  display: flex;
+  flex-direction: column;
+}
