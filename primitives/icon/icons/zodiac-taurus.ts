@@ -1,0 +1,3 @@
+// Auto-generated from lucide-static — do not edit
+export const zodiacTaurus = `<circle cx="12" cy="15" r="6" />
+<path d="M18 3A6 6 0 0 1 6 3" />`;

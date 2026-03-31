@@ -1,0 +1,6 @@
+// Auto-generated from lucide-static — do not edit
+export const arrowDownNarrowWide = `<path d="m3 16 4 4 4-4" />
+<path d="M7 20V4" />
+<path d="M11 4h4" />
+<path d="M11 8h7" />
+<path d="M11 12h10" />`;

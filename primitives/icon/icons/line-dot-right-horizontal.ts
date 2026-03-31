@@ -1,0 +1,3 @@
+// Auto-generated from lucide-static — do not edit
+export const lineDotRightHorizontal = `<path d="M 3 12 L 15 12" />
+<circle cx="18" cy="12" r="3" />`;

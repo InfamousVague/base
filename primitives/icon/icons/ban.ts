@@ -1,0 +1,3 @@
+// Auto-generated from lucide-static — do not edit
+export const ban = `<circle cx="12" cy="12" r="10" />
+<path d="M4.929 4.929 19.07 19.071" />`;

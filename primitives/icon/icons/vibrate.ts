@@ -1,0 +1,4 @@
+// Auto-generated from lucide-static — do not edit
+export const vibrate = `<path d="m2 8 2 2-2 2 2 2-2 2" />
+<path d="m22 8-2 2 2 2-2 2 2 2" />
+<rect width="8" height="14" x="8" y="5" rx="1" />`;
