@@ -1,0 +1,84 @@
+/* Indicator primitive */
+
+/* ---- Base ---- */
+.indicator {
+  position: relative;
+  display: inline-flex;
+}
+
+/* ---- Dot ---- */
+.indicator__dot {
+  position: absolute;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-bg-primary);
+  z-index: 1;
+}
+
+/* ---- Sizes ---- */
+.indicator__dot--sm {
+  width: 8px;
+  height: 8px;
+}
+.indicator__dot--md {
+  width: 12px;
+  height: 12px;
+}
+
+/* ---- Label (count mode) ---- */
+.indicator__dot--label {
+  min-width: 1rem;
+  height: 1rem;
+  width: auto;
+  padding: 0 var(--sp-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs-size);
+  font-weight: var(--weight-medium);
+  font-family: var(--font-sans);
+  color: var(--color-bg-primary);
+  line-height: 1;
+}
+
+/* ---- Positions ---- */
+.indicator__dot--top-right {
+  top: -2px;
+  right: -2px;
+}
+.indicator__dot--top-left {
+  top: -2px;
+  left: -2px;
+}
+.indicator__dot--bottom-right {
+  bottom: -2px;
+  right: -2px;
+}
+.indicator__dot--bottom-left {
+  bottom: -2px;
+  left: -2px;
+}
+
+/* ---- Colors ---- */
+.indicator__dot--accent {
+  background: var(--color-text-primary);
+}
+.indicator__dot--success {
+  background: var(--color-success);
+}
+.indicator__dot--error {
+  background: var(--color-error);
+}
+.indicator__dot--warning {
+  background: var(--color-warning);
+}
+.indicator__dot--info {
+  background: var(--color-info);
+}
+.indicator__dot--neutral {
+  background: var(--color-text-tertiary);
+}
+
+/* ---- Hidden ---- */
+.indicator__dot--hidden {
+  display: none;
+}

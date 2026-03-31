@@ -1,0 +1,112 @@
+/* Dialog primitive */
+
+/* ---- Backdrop ---- */
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: dialog-backdrop-in var(--duration-normal) var(--ease-out);
+}
+
+[data-theme="dark"] .dialog-backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* ---- Dialog panel ---- */
+.dialog {
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-height: 85vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  animation: dialog-scale-in var(--duration-normal) var(--ease-out);
+}
+
+/* ---- Sizes ---- */
+.dialog--sm { max-width: 24rem; width: 100%; }
+.dialog--md { max-width: 32rem; width: 100%; }
+.dialog--lg { max-width: 42rem; width: 100%; }
+
+/* ---- Header ---- */
+.dialog__header {
+  padding: var(--sp-4) var(--sp-4) 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.dialog__title {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--text-lg-line-height);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.dialog__description {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line-height);
+  color: var(--color-text-secondary);
+  margin: var(--sp-1) 0 0;
+}
+
+/* ---- Close button ---- */
+.dialog__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: var(--sp-1);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+.dialog__close:hover {
+  color: var(--color-text-primary);
+}
+
+/* ---- Body ---- */
+.dialog__body {
+  padding: var(--sp-4);
+  flex: 1;
+  font-family: var(--font-sans);
+}
+
+/* ---- Footer ---- */
+.dialog__footer {
+  padding: var(--sp-3) var(--sp-4);
+  border-top: 1px solid var(--color-border-default);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: var(--sp-2);
+}
+
+/* ---- Animations ---- */
+@keyframes dialog-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes dialog-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

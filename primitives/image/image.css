@@ -1,0 +1,20 @@
+/* Image primitive */
+
+/* ---- Base ---- */
+.image {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---- Object fit ---- */
+.image--cover { object-fit: cover; }
+.image--contain { object-fit: contain; }
+.image--fill { object-fit: fill; }
+.image--none { object-fit: none; }
+
+/* ---- Border radius ---- */
+.image--radius-sm { border-radius: var(--radius-sm); }
+.image--radius-md { border-radius: var(--radius-md); }
+.image--radius-lg { border-radius: var(--radius-lg); }
+.image--radius-xl { border-radius: var(--radius-xl); }
+.image--radius-full { border-radius: var(--radius-full); }

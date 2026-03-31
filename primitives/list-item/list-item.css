@@ -1,0 +1,81 @@
+/* ListItem primitive */
+
+/* ---- Base ---- */
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+  min-height: 2.25rem;
+}
+
+.list-item + .list-item {
+  margin-top: var(--sp-1);
+}
+
+.list-item:hover {
+  background: var(--color-overlay);
+}
+
+/* ---- States ---- */
+.list-item--active {
+  background: var(--color-overlay-heavy);
+}
+
+.list-item--selected {
+  background: var(--color-accent-subtle);
+}
+
+.list-item--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---- Icon ---- */
+.list-item__icon {
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+  display: flex;
+  align-items: center;
+}
+
+/* ---- Content ---- */
+.list-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.list-item__label {
+  font-size: var(--text-sm-size);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-item__description {
+  font-size: var(--text-xs-size);
+  color: var(--color-text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---- Trailing ---- */
+.list-item__trailing {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--color-text-tertiary);
+}

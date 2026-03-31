@@ -1,0 +1,57 @@
+/* Meter primitive */
+
+/* ---- Base ---- */
+.meter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  width: 100%;
+}
+
+/* ---- Header ---- */
+.meter__header {
+  display: flex;
+  justify-content: space-between;
+}
+.meter__label {
+  font-size: var(--text-xs-size);
+  color: var(--color-text-secondary);
+}
+.meter__value {
+  font-size: var(--text-xs-size);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* ---- Track ---- */
+.meter__track {
+  width: 100%;
+  background: var(--color-bg-inset);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.meter__track--sm {
+  height: var(--sp-1);
+}
+.meter__track--md {
+  height: var(--sp-2);
+}
+.meter__track--lg {
+  height: var(--sp-3);
+}
+
+/* ---- Bar ---- */
+.meter__bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--duration-normal) var(--ease-default);
+}
+.meter__bar--low {
+  background: var(--color-error);
+}
+.meter__bar--medium {
+  background: var(--color-warning);
+}
+.meter__bar--high {
+  background: var(--color-success);
+}
