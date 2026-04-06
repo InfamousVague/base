@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DECur_0Z.js";var t=e({chevronRight:()=>n}),n=`<path d="m9 18 6-6-6-6" />`;export{t as n,n as t};

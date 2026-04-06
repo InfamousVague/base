@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    /* FOUC prevention */
+    (function() {
+      var t = localStorage.getItem('base-theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      if (localStorage.getItem('base-color') === 'true') {
+        document.documentElement.setAttribute('data-color', 'true');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base — Universal Design Toolkit</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 20 20'%3E%3Ccircle cx='3' cy='3' r='1.8' fill='%23888'/%3E%3Ccircle cx='10' cy='3' r='1.8' fill='%23888'/%3E%3Ccircle cx='17' cy='3' r='1.8' fill='%23888'/%3E%3Ccircle cx='3' cy='10' r='1.8' fill='%23888'/%3E%3Ccircle cx='10' cy='10' r='1.8' fill='%23888'/%3E%3Ccircle cx='17' cy='10' r='1.8' fill='%23888'/%3E%3Ccircle cx='3' cy='17' r='1.8' fill='%23888'/%3E%3Ccircle cx='10' cy='17' r='1.8' fill='%23888'/%3E%3Ccircle cx='17' cy='17' r='1.8' fill='%23888'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/base/assets/index-D512Uq8O.js"></script>
+  <link rel="modulepreload" crossorigin href="/base/assets/chunk-DECur_0Z.js">
+  <link rel="modulepreload" crossorigin href="/base/assets/jsx-runtime-CP2iHdEU.js">
+  <link rel="modulepreload" crossorigin href="/base/assets/link-Bw8eH8T6.js">
+  <link rel="modulepreload" crossorigin href="/base/assets/Icon-GGTD07Mp.js">
+  <link rel="modulepreload" crossorigin href="/base/assets/chevron-down-CTYeZ4iJ.js">
+  <link rel="stylesheet" crossorigin href="/base/assets/index-CRiJrmfm.css">
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+var e=`<path d="M17 7 7 17" />
+<path d="M17 17H7V7" />`;export{e as arrowDownLeft};

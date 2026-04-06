@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DECur_0Z.js";var t=e({check:()=>n}),n=`<path d="M20 6 9 17l-5-5" />`;export{t as n,n as t};

@@ -1,0 +1,1 @@
+var e=`<path d="m18 15-6-6-6 6" />`;export{e as chevronUp};

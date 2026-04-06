@@ -1,0 +1,1 @@
+var e=`<path d="M12 20h.01" />`;export{e as wifiZero};
