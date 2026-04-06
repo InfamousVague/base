@@ -1,0 +1,1 @@
+import"./chunk-DECur_0Z.js";import{n as e,t}from"./jsx-runtime-CP2iHdEU.js";e();var n=t();function r({children:e,size:t=`md`,className:r=``,style:i}){return(0,n.jsx)(`kbd`,{className:[`kbd`,`kbd--${t}`,r].filter(Boolean).join(` `),style:i,children:e})}export{r as t};

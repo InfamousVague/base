@@ -1,0 +1,1 @@
+import"./chunk-DECur_0Z.js";import{n as e,t}from"./jsx-runtime-CP2iHdEU.js";e();var n=t();function r({size:e=`md`,className:t=``,style:r}){return(0,n.jsx)(`span`,{className:[`spinner`,`spinner--${e}`,t].filter(Boolean).join(` `),style:r,role:`status`,"aria-label":`Loading`})}export{r as t};

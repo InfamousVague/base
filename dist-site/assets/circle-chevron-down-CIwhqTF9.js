@@ -1,0 +1,2 @@
+var e=`<circle cx="12" cy="12" r="10" />
+<path d="m16 10-4 4-4-4" />`;export{e as circleChevronDown};

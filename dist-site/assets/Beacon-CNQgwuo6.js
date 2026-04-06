@@ -1,0 +1,1 @@
+import"./chunk-DECur_0Z.js";import{n as e,t}from"./jsx-runtime-CP2iHdEU.js";e();var n=t();function r({color:e=`accent`,size:t=`md`,className:r=``,style:i}){return(0,n.jsx)(`span`,{className:[`beacon`,`beacon--${t}`,`beacon--${e}`,r].filter(Boolean).join(` `),style:i,role:`status`,"aria-label":`Active indicator`})}export{r as t};

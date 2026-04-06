@@ -1,0 +1,1 @@
+var e=`<circle cx="12.1" cy="12.1" r="1" />`;export{e as dot};

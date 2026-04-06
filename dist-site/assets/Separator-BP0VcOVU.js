@@ -1,0 +1,1 @@
+import"./chunk-DECur_0Z.js";import{n as e,t}from"./jsx-runtime-CP2iHdEU.js";e();var n=t();function r({orientation:e=`horizontal`,decorative:t=!1,className:r=``,style:i}){return(0,n.jsx)(`div`,{className:[`separator`,`separator--${e}`,r].filter(Boolean).join(` `),style:i,role:t?`none`:`separator`,"aria-orientation":t?void 0:e})}export{r as t};

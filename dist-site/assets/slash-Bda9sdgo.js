@@ -1,0 +1,1 @@
+var e=`<path d="M22 2 2 22" />`;export{e as slash};

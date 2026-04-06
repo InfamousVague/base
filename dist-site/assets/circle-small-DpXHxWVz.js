@@ -1,0 +1,1 @@
+var e=`<circle cx="12" cy="12" r="6" />`;export{e as circleSmall};

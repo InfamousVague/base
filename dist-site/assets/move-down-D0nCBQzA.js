@@ -1,0 +1,2 @@
+var e=`<path d="M8 18L12 22L16 18" />
+<path d="M12 2V22" />`;export{e as moveDown};

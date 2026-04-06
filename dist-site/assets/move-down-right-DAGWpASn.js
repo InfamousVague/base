@@ -1,0 +1,2 @@
+var e=`<path d="M19 13V19H13" />
+<path d="M5 5L19 19" />`;export{e as moveDownRight};
