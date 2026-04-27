@@ -1,4 +1,3 @@
-import React from 'react';
 import type { CSSProperties } from 'react';
 import { useIconDraw } from './useIconDraw.js';
 import type { DrawSpeed } from './useIconDraw.js';
