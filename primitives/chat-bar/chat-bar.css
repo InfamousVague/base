@@ -1,0 +1,213 @@
+/* ChatBar — single-row chat input with auto-resizing textarea
+   and an attached send button. Composes the textarea + button
+   pattern AI surfaces (chat panels, agent panels, command
+   palettes) repeatedly hand-rolled, so consumers can drop a
+   `<ChatBar value onChange onSubmit />` and not worry about
+   focus-ring layering, send-button alignment, or auto-grow
+   plumbing.
+
+   Tokens this file reads:
+     --color-bg-secondary        bar fill
+     --color-bg-tertiary         filled / hover surfaces
+     --color-text-primary        input text
+     --color-text-tertiary       placeholder + idle icon
+     --color-border-default      default outline
+     --color-border-strong       focus / hover outline
+     --color-accent              send button (when enabled)
+     --color-accent-fg           send button label
+     --libre-radius-md           default-shape radius
+     --libre-radius-pill         pill-shape radius
+*/
+
+.chat-bar {
+  /* Outer container — a horizontal flex row that hosts the
+     optional start/end slots, the textarea, and the send button.
+     Items align to flex-end so the send button stays pinned to
+     the textarea's bottom edge as the textarea grows. */
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 6px;
+  box-sizing: border-box;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  transition:
+    border-color 140ms ease,
+    background-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+/* ── Size variants ──────────────────────────────────────────── */
+
+.chat-bar--sm {
+  padding: 4px;
+  font-size: 12.5px;
+}
+.chat-bar--sm .chat-bar__send {
+  width: 26px;
+  height: 26px;
+}
+
+.chat-bar--md {
+  padding: 6px;
+  font-size: 14px;
+}
+.chat-bar--md .chat-bar__send {
+  width: 30px;
+  height: 30px;
+}
+
+.chat-bar--lg {
+  padding: 8px;
+  font-size: 15px;
+}
+.chat-bar--lg .chat-bar__send {
+  width: 36px;
+  height: 36px;
+}
+
+/* ── Visual variants ────────────────────────────────────────── */
+
+.chat-bar--outline {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border-default);
+}
+
+.chat-bar--filled {
+  background: var(--color-bg-tertiary);
+  border-color: transparent;
+}
+
+.chat-bar--ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+/* ── Shape ──────────────────────────────────────────────────── */
+
+.chat-bar--square {
+  border-radius: 0;
+}
+.chat-bar--default {
+  border-radius: var(--libre-radius-md, 10px);
+}
+.chat-bar--pill {
+  border-radius: var(--libre-radius-pill, 999px);
+}
+
+/* ── Interactive states ────────────────────────────────────── */
+
+.chat-bar:hover:not(.chat-bar--disabled) {
+  border-color: var(--color-border-strong);
+}
+
+.chat-bar:focus-within:not(.chat-bar--disabled) {
+  border-color: var(--color-border-strong);
+  /* Soft focus ring — matches the textarea + input primitives'
+     focus treatment so a ChatBar reads as the same family. */
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-accent, currentColor) 18%, transparent);
+}
+
+.chat-bar--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ── Textarea ───────────────────────────────────────────────── */
+
+.chat-bar__input {
+  /* Strip the textarea's native chrome — the ChatBar's outer
+     border + focus ring own the silhouette. */
+  flex: 1;
+  min-width: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: inherit;
+  font: inherit;
+  resize: none;
+  padding: 6px 8px;
+  /* min-height matches a single line at the current font-size so
+     a fresh empty bar doesn't collapse to a 0-tall textarea. */
+  line-height: 1.4;
+  min-height: 1.4em;
+  /* `overflow-y` is toggled at runtime — it shows the scrollbar
+     only when content exceeds `maxHeight`, otherwise hides it so
+     short messages don't paint a hairline gutter. */
+  overflow-y: hidden;
+}
+
+.chat-bar__input::placeholder {
+  color: var(--color-text-tertiary);
+  /* Slight de-emphasis so the placeholder reads "hint", not
+     "current value". */
+  opacity: 0.85;
+}
+
+.chat-bar__input:disabled {
+  cursor: not-allowed;
+}
+
+/* ── Send button ────────────────────────────────────────────── */
+
+.chat-bar__send {
+  /* Square chip with the up-arrow glyph. Sized per the parent's
+     `chat-bar--<size>` rule above. */
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent, currentColor);
+  color: var(--color-accent-fg, #fff);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background-color 140ms ease,
+    transform 100ms ease,
+    opacity 140ms ease;
+}
+
+.chat-bar__send:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.chat-bar__send:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.chat-bar__send:disabled {
+  background: color-mix(
+    in srgb,
+    var(--color-text-tertiary, currentColor) 30%,
+    transparent
+  );
+  color: var(--color-text-tertiary);
+  cursor: not-allowed;
+}
+
+/* While the model is generating, the send button becomes the
+   busy indicator (spinner). It stays disabled — the parent
+   typically renders a stop button in `endSlot` for cancellation
+   instead of swapping the click target here. */
+.chat-bar--sending .chat-bar__send {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  cursor: progress;
+}
+
+/* ── Optional slots ─────────────────────────────────────────── */
+
+.chat-bar__start,
+.chat-bar__end {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 4px;
+}
