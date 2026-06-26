@@ -3,11 +3,18 @@ import type { CSSProperties } from 'react';
 
 // ---- Types ----
 
-type SegmentedControlSize = 'sm' | 'md';
+type SegmentedControlSize = 'sm' | 'md' | 'lg';
 
 export interface SegmentedControlOption {
   value: string;
-  label: string;
+  /** Visible content. A string for a plain text segment, or any node
+   *  to embed a leading icon and/or a trailing count badge alongside
+   *  the text (e.g. `<><Icon/> Split</>`). */
+  label: React.ReactNode;
+  /** Tooltip + accessible name. Useful when `label` is icon-only (or
+   *  collapses to icon-only responsively) so the option still has a
+   *  hover title and an accessible name. */
+  title?: string;
   disabled?: boolean;
 }
 
@@ -26,6 +33,8 @@ export interface SegmentedControlProps {
   className?: string;
   /** Additional inline styles */
   style?: CSSProperties;
+  /** Accessible name for the radiogroup (e.g. "Output view"). */
+  ariaLabel?: string;
 }
 
 /**
@@ -43,6 +52,7 @@ export function SegmentedControl({
   mono = false,
   className = '',
   style,
+  ariaLabel,
 }: SegmentedControlProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [indicatorStyle, setIndicatorStyle] = useState<CSSProperties>({});
@@ -76,7 +86,7 @@ export function SegmentedControl({
   ].filter(Boolean).join(' ');
 
   return (
-    <div ref={containerRef} className={classes} style={style} role="radiogroup">
+    <div ref={containerRef} className={classes} style={style} role="radiogroup" aria-label={ariaLabel}>
       <div className="seg__indicator" style={indicatorStyle} />
       {options.map((opt) => {
         const isActive = opt.value === value;
@@ -87,6 +97,8 @@ export function SegmentedControl({
             role="radio"
             aria-checked={isActive}
             disabled={opt.disabled}
+            title={opt.title}
+            aria-label={opt.title}
             className={`seg__option ${isActive ? 'seg__option--active' : ''}`}
             onClick={() => onChange(opt.value)}
           >
