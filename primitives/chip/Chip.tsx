@@ -1,4 +1,3 @@
-import React from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import { Icon } from '../icon/Icon.js';
 import { Skeleton } from '../skeleton/Skeleton.js';

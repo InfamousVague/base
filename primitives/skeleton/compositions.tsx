@@ -1,4 +1,3 @@
-import React from 'react';
 import type { CSSProperties } from 'react';
 import { Skeleton } from './Skeleton.js';
 import type { SkeletonProps } from './Skeleton.js';
